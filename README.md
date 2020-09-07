@@ -137,6 +137,9 @@ Entrevistado 5: Gary Montenegro
 
 * Colocar boton ver mas (a partir de 10 perfiles del personaje).
 
+## Paleta de colores:
+
+![](img-readme/PaletaDeColores.png)
 
 ### Tropotipo de alta fidelidad:
 
