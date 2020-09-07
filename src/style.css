@@ -484,6 +484,7 @@
 }
 
 .person{
+    max-width: 350px;
     flex-grow: 1;
     padding: 15px;
     margin:15px 20px;

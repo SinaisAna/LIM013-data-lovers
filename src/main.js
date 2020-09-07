@@ -7,7 +7,7 @@ const listElement = document.getElementById('alldata');
 const paginationElemnent = document.getElementById('pagination');
 
 //Contenidos para el html
-const obtenerPersonajes = (data) => {
+const getCharacters = (data) => {
 	return `<div class="person">
 		<div class="imagenes">
 		<img class="photo" src="${data.image}">
@@ -37,12 +37,12 @@ const displayList = (items, wrapper, rows_per_page, page) => {
 		let itemElement = document.createElement('div');
 		itemElement.innerText = item.name;
 
-		wrapper.innerHTML += obtenerPersonajes(item);
+		wrapper.innerHTML += getCharacters(item);
 	}
 }
 
 const paginationbuttons = (page, items) => {
-	let buttons = document.createElement('button');
+	const buttons = document.createElement('button');
 	buttons.innerText = page;
 
 	if (currentPage == page) buttons.classList.add('active');
@@ -50,7 +50,7 @@ const paginationbuttons = (page, items) => {
 	buttons.addEventListener('click', function () {
 		currentPage = page;
 		displayList(items, listElement, rows, currentPage);
-		let currentBtn = document.querySelector('.pagenumbers button.active');
+		const currentBtn = document.querySelector('.pagenumbers button.active');
 		currentBtn.classList.remove('active');
 		buttons.classList.add('active');
 	});
@@ -94,13 +94,13 @@ btnIntro.appendChild(btnIngresar);
 //Funciónes de barra de navegación-menu
 const menuOpen = document.getElementById('menu-toggle');
 
-const cambiarClase = () => {
+const changeClass = () => {
 	const siteNav = document.getElementById('menu');
 	siteNav.classList.toggle('menu-open');
 	menuOpen.classList.toggle('menu-open');
 }
 
-menuOpen.addEventListener("click", cambiarClase);
+menuOpen.addEventListener("click", changeClass);
 
 //Función de los boton de de filtro e inputs de radio para desactivar
 const resetRadioButtons = (groupName) => {
@@ -111,7 +111,7 @@ const resetRadioButtons = (groupName) => {
 	}
 }
 
-const botonTodos = () => {
+const allButton = () => {
 	welcome();
 	document.querySelector('#content-cb').classList.add("ocultar");
 	resetRadioButtons("esp");
@@ -120,9 +120,9 @@ const botonTodos = () => {
 	resetRadioButtons("estd");
 }
 const btnTodos = document.getElementById("btn-todos")
-btnTodos.addEventListener("click", botonTodos);
+btnTodos.addEventListener("click", allButton);
 
-const botonTodosM = () => {
+const allButtonM = () => {
 	welcome();
 	document.querySelector('#my_modal').classList.add("ocultar");
 	resetRadioButtons("esp");
@@ -131,7 +131,7 @@ const botonTodosM = () => {
 	resetRadioButtons("estd");
 }
 const btnTodosM = document.getElementById("btn-todos-m")
-btnTodosM.addEventListener("click", botonTodosM);
+btnTodosM.addEventListener("click", allButtonM);
 
 const checkboxE = () => {
 	document.querySelector('#content-cb').classList.remove("ocultar");
@@ -229,7 +229,7 @@ for (let i = 0; i < inputNameM.length; i++) {
 }
 
 //Función de buscar
-let contenBus = document.getElementById('ctn-bars-search');
+const contenBus = document.getElementById('ctn-bars-search');
 const coverBus = document.getElementById("cover-ctn-search");
 const inputSeatch = document.getElementById('inputSeatch');
 
@@ -385,7 +385,7 @@ const chapter = () => {
 	document.getElementById('contenido').classList.add('ocultar');
 	document.getElementById('credito').classList.add('ocultar');
 	document.getElementById('capi').classList.remove('ocultar');
-	cambiarClase();
+	changeClass();
 	for (let i = 0; i < capis.length; i++) {
 		document.getElementById("data-capitulos").innerHTML += sampleChapters(capis[i], i + 1);
 	}
@@ -402,7 +402,7 @@ const backMain = () => {
 	document.getElementById('contenido').classList.remove('ocultar');
 	document.getElementById('capi').classList.add('ocultar');
 	document.getElementById('credito').classList.add('ocultar');
-	cambiarClase();
+	changeClass();
 }
 
 document.getElementById("conteni").addEventListener("click", backMain);
@@ -415,7 +415,7 @@ const credits = () => {
 	document.getElementById('contenido').classList.add('ocultar');
 	document.getElementById('capi').classList.add('ocultar');
 	document.getElementById('credito').classList.remove('ocultar');
-	cambiarClase();
+	changeClass();
 
 }
 document.getElementById('nosotras').addEventListener("click", credits);
