@@ -268,6 +268,12 @@
         display: list-item;
         margin: 0;
     }
+
+    /*Sección de capítulos*/
+    .retrato {
+        width: 90%;
+        max-width: 90%;
+    }
 }
 
 @media screen and (max-width:750px){
@@ -297,26 +303,56 @@
         margin: 5px 10px;
         font-size: 16px;
     }
+    
     .text-datos{
         font-size: 14px;
     }
+}
 
-    /*buscador de capítulos*/ 
-    .Text-datos{
-        margin: 2px 20px;
-        font-size: 13px;
-        text-align: center;
+@media screen and (max-width:400px){
+    /*Sección de capítulos*/ 
+    .retrato {
+        padding: 10px;
+    }
+    
+    .imas {
+        margin-right: 10px;
     }
 
-    .retrato {
+    .text-cap{
+        font-size: 13px;
+        margin-bottom: 3px;
+    }
+
+    .photopar{
+        margin-top: 3px;
+        width: 25px;
+    }
+    .logo img{
         width: 90%;
-        max-width: 90%;
+    }
+    
+    #container-header{
+        padding: 5px 0;
+    }
+
+    #ctn-icon-search{
+        width: 9%;
+    }
+    
+    .menu-toggle{
+        padding: 15px;
     }
 }
 
-@media screen and (max-width:1000px){
-    /*buscador de capítulos*/ 
+@media screen and (min-width: 401px) and (max-width:1000px){
+    /*Sección de capítulos*/ 
     .photopar{
         width: 30px;
+    }
+
+    .text-cap{
+        font-size: 14px;
+        margin-bottom: 3px;
     }
 }
