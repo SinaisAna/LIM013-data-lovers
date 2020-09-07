@@ -42,7 +42,7 @@ const displayList = (items, wrapper, rows_per_page, page) => {
 }
 
 const paginationbuttons = (page, items) => {
-	let buttons = document.createElement('button');
+	const buttons = document.createElement('button');
 	buttons.innerText = page;
 
 	if (currentPage == page) buttons.classList.add('active');
@@ -229,7 +229,7 @@ for (let i = 0; i < inputNameM.length; i++) {
 }
 
 //Función de buscar
-let contenBus = document.getElementById('ctn-bars-search');
+const contenBus = document.getElementById('ctn-bars-search');
 const coverBus = document.getElementById("cover-ctn-search");
 const inputSeatch = document.getElementById('inputSeatch');
 
