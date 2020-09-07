@@ -371,7 +371,6 @@ const muestracapitulos = (capis, idImagen) => {
 		salida += `
 		<img class="photopar" src="${data[capis.characters[i]].image}">`
 	}
-
 	salida += `</div></div>`;
 	return salida;
 }
