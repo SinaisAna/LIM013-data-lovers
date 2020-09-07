@@ -328,6 +328,23 @@
         margin-top: 3px;
         width: 25px;
     }
+
+    /*Sección de header*/ 
+    .logo img{
+        width: 90%;
+    }
+    
+    #container-header{
+        padding: 5px 0;
+    }
+
+    #ctn-icon-search{
+        width: 9%;
+    }
+    
+    .menu-toggle{
+        padding: 15px;
+    }
 }
 
 @media screen and (min-width: 401px) and (max-width:1000px){

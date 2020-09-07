@@ -72,7 +72,7 @@ videoI.autoplay = true
 videoI.load();
 
 //Funciones de botón de inicio
-const bienvenido = () => {
+const welcome = () => {
 	document.querySelector('#conter').classList.add("ocultar");
 	document.querySelector('#contenido').classList.remove("ocultar");
 	document.querySelector('#container-header').classList.remove("ocultar");
@@ -88,7 +88,7 @@ const bienvenido = () => {
 const btnIntro = document.getElementById("btnIntro")
 const btnIngresar = document.createElement("button");
 btnIngresar.textContent = "Comenzar";
-btnIngresar.addEventListener("click", bienvenido);
+btnIngresar.addEventListener("click", welcome);
 btnIntro.appendChild(btnIngresar);
 
 //Funciónes de barra de navegación-menu
@@ -112,7 +112,7 @@ const resetRadioButtons = (groupName) => {
 }
 
 const botonTodos = () => {
-	bienvenido();
+	welcome();
 	document.querySelector('#content-cb').classList.add("ocultar");
 	resetRadioButtons("esp");
 	resetRadioButtons("orig");
@@ -123,7 +123,7 @@ const btnTodos = document.getElementById("btn-todos")
 btnTodos.addEventListener("click", botonTodos);
 
 const botonTodosM = () => {
-	bienvenido();
+	welcome();
 	document.querySelector('#my_modal').classList.add("ocultar");
 	resetRadioButtons("esp");
 	resetRadioButtons("orig");
@@ -233,30 +233,31 @@ let contenBus = document.getElementById('ctn-bars-search');
 const coverBus = document.getElementById("cover-ctn-search");
 const inputSeatch = document.getElementById('inputSeatch');
 
-const MuestraBusca = () => {
+const sampleSearch = () => {
 
 	contenBus.style.top = "80px";
 	coverBus.style.display = "block";
 	inputSeatch.focus();
 }
-document.getElementById("ctn-icon-search").addEventListener("click", MuestraBusca);
+document.getElementById("ctn-icon-search").addEventListener("click", sampleSearch);
 
-const ocultaBusca = () => {
+const hideSearch = () => {
 	contenBus.style.top = "-10px";
 	coverBus.style.display = "none";
 	inputSeatch.value = " ";
 }
-document.getElementById("cover-ctn-search").addEventListener("click", ocultaBusca);
+document.getElementById("cover-ctn-search").addEventListener("click", hideSearch);
 
-const salida2 = () => {
+const exit2 = () => {
 	contenBus.style.top = "-10px";
 	coverBus.style.display = "none";
 	inputSeatch.value = " ";
 }
 
-document.getElementById("exit").addEventListener("click", salida2);
+document.getElementById("exit").addEventListener("click", exit2);
 
-const buscadorPrincipal = () => {
+//motor de buscador principal
+const mainSearchEngine = () => {
 	let texto = document.getElementById('inputSeatch');
 	texto = texto.value.replace(/ /g, "");
 
@@ -265,20 +266,20 @@ const buscadorPrincipal = () => {
 		let filternames = datajs.filterName(data, textoMin);
 		displayList(filternames, listElement, rows, currentPage);
 		setupagination(filternames, paginationElemnent, rows);
-		ocultaBusca()
+		hideSearch()
 	}
 }
 
-document.getElementById("local").addEventListener("click", buscadorPrincipal);
+document.getElementById("local").addEventListener("click", mainSearchEngine);
 
-const presionarTecla = () => {
+const enters = () => {
 	let teclaEsc = event.keyCode;
 	if (teclaEsc == 13) {
-		return buscadorPrincipal() && ocultaBusca();
+		return mainSearchEngine() && hideSearch();
 	}
 }
 
-window.onkeydown = presionarTecla;
+window.onkeydown = enters;
 
 // Función de ordenar
 const btnOrder = document.getElementById("orden")
@@ -331,7 +332,6 @@ const closeModal = () => {
 const closeFilter = document.getElementById("close");
 closeFilter.addEventListener("click", closeModal);
 
-
 const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
 
 //Funciones del acordeón
@@ -357,7 +357,9 @@ accordionItemHeaders.forEach(accordionItemHeader => {
 		resetRadioButtons("estd");
 	});
 });
-const muestracapitulos = (capis, idImagen) => {
+
+//mostrando capítulos
+const sampleChapters = (capis, idImagen) => {
 	let salida = `<div class ="retrato">
 	<div class="imas">
 	<img src="imagen/`+ idImagen + `.png">
@@ -375,7 +377,7 @@ const muestracapitulos = (capis, idImagen) => {
 	return salida;
 }
 
-const capitulo = () => {
+const chapter = () => {
 	document.getElementById('icon-menu').classList.add('ocultar');
 	document.getElementById('capitulos').classList.add('menu-active');
 	document.getElementById('conteni').classList.remove('menu-active');
@@ -385,14 +387,14 @@ const capitulo = () => {
 	document.getElementById('capi').classList.remove('ocultar');
 	cambiarClase();
 	for (let i = 0; i < capis.length; i++) {
-		document.getElementById("data-capitulos").innerHTML += muestracapitulos(capis[i], i + 1);
+		document.getElementById("data-capitulos").innerHTML += sampleChapters(capis[i], i + 1);
 	}
 
 }
 
-document.getElementById("capitulos").addEventListener("click", capitulo);
+document.getElementById("capitulos").addEventListener("click", chapter);
 
-const volverPrincipal = () => {
+const backMain = () => {
 	document.getElementById('icon-menu').classList.remove('ocultar');
 	document.getElementById('conteni').classList.add('menu-active');
 	document.getElementById('capitulos').classList.remove('menu-active');
@@ -403,10 +405,9 @@ const volverPrincipal = () => {
 	cambiarClase();
 }
 
-document.getElementById("conteni").addEventListener("click", volverPrincipal);
+document.getElementById("conteni").addEventListener("click", backMain);
 
-
-const creditos = () => {
+const credits = () => {
 	document.getElementById('icon-menu').classList.add('ocultar');
 	document.getElementById('conteni').classList.remove('menu-active');
 	document.getElementById('capitulos').classList.remove('menu-active');
@@ -417,5 +418,5 @@ const creditos = () => {
 	cambiarClase();
 
 }
-document.getElementById('nosotras').addEventListener("click", creditos);
+document.getElementById('nosotras').addEventListener("click", credits);
 
