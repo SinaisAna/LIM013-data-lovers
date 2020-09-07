@@ -111,6 +111,10 @@ Entrevistado 4: Esau Ocrospoma
 * Medio de entrevista whatsApp.
 * Evidencia: Screenshop.
 
+Entrevistado 5: Gary Montenegro
+* Profesión: Diseñador UX.
+* Medio de entrevista Presencial.
+
 ![](img-readme/whatsApp.jpg)
 
 ### Conclusiones de las entrevistas:
@@ -132,3 +136,16 @@ Entrevistado 4: Esau Ocrospoma
 * Colocar los filtros visibles, pero sin que invadan la página web.
 
 * Colocar boton ver mas (a partir de 10 perfiles del personaje).
+
+
+### Tropotipo de alta fidelidad:
+
+## Desktop
+
+![](img-readme/protoA1.png)
+
+![](img-readme/protoA2.png)
+
+![](img-readme/protoA3.png)
+
+![](img-readme/protoA4.png)
