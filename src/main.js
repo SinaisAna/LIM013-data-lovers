@@ -94,13 +94,13 @@ btnIntro.appendChild(btnIngresar);
 //Funciónes de barra de navegación-menu
 const menuOpen = document.getElementById('menu-toggle');
 
-const cambiarClase = () => {
+const changeClass = () => {
 	const siteNav = document.getElementById('menu');
 	siteNav.classList.toggle('menu-open');
 	menuOpen.classList.toggle('menu-open');
 }
 
-menuOpen.addEventListener("click", cambiarClase);
+menuOpen.addEventListener("click", changeClass);
 
 //Función de los boton de de filtro e inputs de radio para desactivar
 const resetRadioButtons = (groupName) => {
@@ -386,7 +386,7 @@ const chapter = () => {
 	document.getElementById('contenido').classList.add('ocultar');
 	document.getElementById('credito').classList.add('ocultar');
 	document.getElementById('capi').classList.remove('ocultar');
-	cambiarClase();
+	changeClass();
 	for (let i = 0; i < capis.length; i++) {
 		document.getElementById("data-capitulos").innerHTML += sampleChapters(capis[i], i + 1);
 	}
@@ -403,7 +403,7 @@ const backMain = () => {
 	document.getElementById('contenido').classList.remove('ocultar');
 	document.getElementById('capi').classList.add('ocultar');
 	document.getElementById('credito').classList.add('ocultar');
-	cambiarClase();
+	changeClass();
 }
 
 document.getElementById("conteni").addEventListener("click", backMain);
@@ -417,7 +417,7 @@ const credits = () => {
 	document.getElementById('contenido').classList.add('ocultar');
 	document.getElementById('capi').classList.add('ocultar');
 	document.getElementById('credito').classList.remove('ocultar');
-	cambiarClase();
+	changeClass();
 
 }
 document.getElementById('nosotras').addEventListener("click", credits);
