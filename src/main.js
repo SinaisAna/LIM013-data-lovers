@@ -7,7 +7,7 @@ const listElement = document.getElementById('alldata');
 const paginationElemnent = document.getElementById('pagination');
 
 //Contenidos para el html
-const obtenerPersonajes = (data) => {
+const getCharacters = (data) => {
 	return `<div class="person">
 		<div class="imagenes">
 		<img class="photo" src="${data.image}">
@@ -37,7 +37,7 @@ const displayList = (items, wrapper, rows_per_page, page) => {
 		let itemElement = document.createElement('div');
 		itemElement.innerText = item.name;
 
-		wrapper.innerHTML += obtenerPersonajes(item);
+		wrapper.innerHTML += getCharacters(item);
 	}
 }
 
