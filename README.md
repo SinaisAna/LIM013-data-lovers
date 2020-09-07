@@ -144,11 +144,11 @@ Entrevistado 5: Gary Montenegro
 
 ![](img-readme/protoA1.png)
 
-![](img-readme/protoA2.png)
+![](img-readme/protosA2.png)
 
-![](img-readme/protoA3.png)
+![](img-readme/protosA3.png)
 
-![](img-readme/protoA4.png)
+![](img-readme/protosA4.png)
 
 ## Mobile
 
