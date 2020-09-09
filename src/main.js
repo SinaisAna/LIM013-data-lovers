@@ -7,6 +7,27 @@ const listElement = document.getElementById('alldata');
 const paginationElemnent = document.getElementById('pagination');
 
 //Contenidos para el html
+const genderEspanis = (valueD) => {
+	switch (valueD) {
+		case "Male": return "Masculino";
+		//	break;
+		case "Female": return "Femenino";
+		//	break;
+		case "unknown": return "Desconocido";
+		//	break;
+		case "Alive": return "Vivo";
+		//	break;
+		case "Dead": return "Muerto";
+		//	break;
+		case "Human": return "Humano";
+		//	break;
+		case "Disease": return "Enfermedad";
+		//	break;
+		default: return valueD;
+		//	break;
+	}
+}
+
 const getCharacters = (data) => {
 	return `<div class="person">
 		<div class="imagenes">
@@ -14,10 +35,10 @@ const getCharacters = (data) => {
 		</div>
 		<div class="info">
 		<h2 class="name">${data.name}</h2>
-		<p class="text-datos">Genero: ${data.gender}</p>
-		<p class="text-datos">Origen: ${data.origin.name}</p>
-		<p class="text-datos">Especie: ${data.species}</p>
-		<p class="text-datos">Estado: ${data.status}</p>
+		<p class="text-datos">Genero: ${genderEspanis(data.gender)}</p>
+		<p class="text-datos">Origen: ${genderEspanis(data.origin.name)}</p>
+		<p class="text-datos">Especie: ${genderEspanis(data.species)}</p>
+		<p class="text-datos">Estado: ${genderEspanis(data.status)}</p>
 		</div>
 		</div>`
 }
