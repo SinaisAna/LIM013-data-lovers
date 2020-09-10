@@ -8,16 +8,26 @@ const paginationElemnent = document.getElementById('pagination');
 
 //Contenidos para el html
 const genderEspanis = (valueD) => {
+	let result = null;
 	switch (valueD) {
-		case "Male": return "Masculino";
-		case "Female": return "Femenino";
-		case "unknown": return "Desconocido";
-		case "Alive": return "Vivo";
-		case "Dead": return "Muerto";
-		case "Human": return "Humano";
-		case "Disease": return "Enfermedad";
-		default: return valueD;
+		case "Male": result = "Masculino";
+			break;
+		case "Female": result = "Femenino";
+			break;
+		case "unknown": result = "Desconocido";
+			break;
+		case "Alive": result = "Vivo";
+			break;
+		case "Dead": result = "Muerto";
+			break;
+		case "Human": result = "Humano";
+			break;
+		case "Disease": result = "Enfermedad";
+			break;
+		default: result = valueD;
+			break;
 	}
+	return result;
 }
 
 const getCharacters = (data) => {
