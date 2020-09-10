@@ -10,21 +10,13 @@ const paginationElemnent = document.getElementById('pagination');
 const genderEspanis = (valueD) => {
 	switch (valueD) {
 		case "Male": return "Masculino";
-		//	break;
 		case "Female": return "Femenino";
-		//	break;
 		case "unknown": return "Desconocido";
-		//	break;
 		case "Alive": return "Vivo";
-		//	break;
 		case "Dead": return "Muerto";
-		//	break;
 		case "Human": return "Humano";
-		//	break;
 		case "Disease": return "Enfermedad";
-		//	break;
 		default: return valueD;
-		//	break;
 	}
 }
 
