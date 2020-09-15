@@ -134,17 +134,34 @@ const resetRadioButtons = (groupName) => {
 	}
 }
 
-const allButton = () => {
-	welcome();
-	document.querySelector('#content-cb').classList.add("ocultar");
-	resetRadioButtons("esp");
-	resetRadioButtons("orig");
-	resetRadioButtons("gener");
-	resetRadioButtons("estd");
-}
-const btnTodos = document.getElementById("btn-todos")
-btnTodos.addEventListener("click", allButton);
+//Funciones de botones Tabs, para opciones de filtros
+document.querySelectorAll(".btn-controls button")
+	.forEach(button => {
+		button.addEventListener("click", function () {
+			const parent = button.parentNode;
+			const grantParent = parent.parentNode;
+			const container = grantParent.querySelector(".tabs-container");
+			const childrenList = Array.from(parent.children);
+			const index = childrenList.indexOf(button);
+			container.style.transform = `translatex(-${index * 100}%)`;
 
+			parent.querySelectorAll("button.active")
+				.forEach(activeBtn => activeBtn.classList.remove("active"));
+
+			button.classList.add("active");
+
+			resetRadioButtons("esp");
+			resetRadioButtons("orig");
+			resetRadioButtons("gener");
+			resetRadioButtons("estd");
+
+			if (button.classList.contains("btn-todos")) {
+				welcome();
+			}
+		})
+	})
+
+//Funciones para los botones de all data mobile
 const allButtonM = () => {
 	welcome();
 	document.querySelector('#my_modal').classList.add("ocultar");
@@ -155,58 +172,6 @@ const allButtonM = () => {
 }
 const btnTodosM = document.getElementById("btn-todos-m")
 btnTodosM.addEventListener("click", allButtonM);
-
-const checkboxE = () => {
-	document.querySelector('#content-cb').classList.remove("ocultar");
-	document.querySelector('#especies').classList.remove("ocultar");
-	document.querySelector('#origen').classList.add("ocultar");
-	document.querySelector('#genero').classList.add("ocultar");
-	document.querySelector('#estado').classList.add("ocultar");
-	resetRadioButtons("orig");
-	resetRadioButtons("gener");
-	resetRadioButtons("estd");
-}
-const btnEspecies = document.getElementById("btn-especies")
-btnEspecies.addEventListener("click", checkboxE);
-
-const checkboxO = () => {
-	document.querySelector('#content-cb').classList.remove("ocultar");
-	document.querySelector('#origen').classList.remove("ocultar");
-	document.querySelector('#especies').classList.add("ocultar");
-	document.querySelector('#genero').classList.add("ocultar");
-	document.querySelector('#estado').classList.add("ocultar");
-	resetRadioButtons("esp");
-	resetRadioButtons("gener");
-	resetRadioButtons("estd");
-}
-const btnOrigen = document.getElementById("btn-origen")
-btnOrigen.addEventListener("click", checkboxO);
-
-const checkboxG = () => {
-	document.querySelector('#content-cb').classList.remove("ocultar");
-	document.querySelector('#genero').classList.remove("ocultar");
-	document.querySelector('#especies').classList.add("ocultar");
-	document.querySelector('#origen').classList.add("ocultar");
-	document.querySelector('#estado').classList.add("ocultar");
-	resetRadioButtons("esp");
-	resetRadioButtons("orig");
-	resetRadioButtons("estd");
-}
-const btnGenero = document.getElementById("btn-genero")
-btnGenero.addEventListener("click", checkboxG);
-
-const checkboxEs = () => {
-	document.querySelector('#content-cb').classList.remove("ocultar");
-	document.querySelector('#estado').classList.remove("ocultar");
-	document.querySelector('#especies').classList.add("ocultar");
-	document.querySelector('#origen').classList.add("ocultar");
-	document.querySelector('#genero').classList.add("ocultar");
-	resetRadioButtons("esp");
-	resetRadioButtons("orig");
-	resetRadioButtons("gener");
-}
-const btnEstado = document.getElementById("btn-estado")
-btnEstado.addEventListener("click", checkboxEs);
 
 //Filtro de data
 const botonesFiltros = document.querySelector("#content-cb").children;

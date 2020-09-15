@@ -129,11 +129,7 @@
         line-height: 19px;
     }
     /* Estilos ordenar por y filtros mobile*/
-    .btn-controls{
-        display: none;
-    }
-
-    .content-cb{
+    .tabs{
         display: none;
     }
 
