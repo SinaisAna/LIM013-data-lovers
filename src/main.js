@@ -7,17 +7,40 @@ const listElement = document.getElementById('alldata');
 const paginationElemnent = document.getElementById('pagination');
 
 //Contenidos para el html
-const obtenerPersonajes = (data) => {
+const genderEspanis = (valueD) => {
+	let result = null;
+	switch (valueD) {
+		case "Male": result = "Masculino";
+			break;
+		case "Female": result = "Femenino";
+			break;
+		case "unknown": result = "Desconocido";
+			break;
+		case "Alive": result = "Vivo";
+			break;
+		case "Dead": result = "Muerto";
+			break;
+		case "Human": result = "Humano";
+			break;
+		case "Disease": result = "Enfermedad";
+			break;
+		default: result = valueD;
+			break;
+	}
+	return result;
+}
+
+const getCharacters = (data) => {
 	return `<div class="person">
 		<div class="imagenes">
 		<img class="photo" src="${data.image}">
 		</div>
 		<div class="info">
 		<h2 class="name">${data.name}</h2>
-		<p class="text-datos">Genero: ${data.gender}</p>
-		<p class="text-datos">Origen: ${data.origin.name}</p>
-		<p class="text-datos">Especie: ${data.species}</p>
-		<p class="text-datos">Estado: ${data.status}</p>
+		<p class="text-datos">Genero: ${genderEspanis(data.gender)}</p>
+		<p class="text-datos">Origen: ${genderEspanis(data.origin.name)}</p>
+		<p class="text-datos">Especie: ${genderEspanis(data.species)}</p>
+		<p class="text-datos">Estado: ${genderEspanis(data.status)}</p>
 		</div>
 		</div>`
 }
@@ -37,12 +60,12 @@ const displayList = (items, wrapper, rows_per_page, page) => {
 		let itemElement = document.createElement('div');
 		itemElement.innerText = item.name;
 
-		wrapper.innerHTML += obtenerPersonajes(item);
+		wrapper.innerHTML += getCharacters(item);
 	}
 }
 
 const paginationbuttons = (page, items) => {
-	let buttons = document.createElement('button');
+	const buttons = document.createElement('button');
 	buttons.innerText = page;
 
 	if (currentPage == page) buttons.classList.add('active');
@@ -50,7 +73,7 @@ const paginationbuttons = (page, items) => {
 	buttons.addEventListener('click', function () {
 		currentPage = page;
 		displayList(items, listElement, rows, currentPage);
-		let currentBtn = document.querySelector('.pagenumbers button.active');
+		const currentBtn = document.querySelector('.pagenumbers button.active');
 		currentBtn.classList.remove('active');
 		buttons.classList.add('active');
 	});
@@ -94,13 +117,13 @@ btnIntro.appendChild(btnIngresar);
 //Funciónes de barra de navegación-menu
 const menuOpen = document.getElementById('menu-toggle');
 
-const cambiarClase = () => {
+const changeClass = () => {
 	const siteNav = document.getElementById('menu');
 	siteNav.classList.toggle('menu-open');
 	menuOpen.classList.toggle('menu-open');
 }
 
-menuOpen.addEventListener("click", cambiarClase);
+menuOpen.addEventListener("click", changeClass);
 
 //Función de los boton de de filtro e inputs de radio para desactivar
 const resetRadioButtons = (groupName) => {
@@ -111,18 +134,35 @@ const resetRadioButtons = (groupName) => {
 	}
 }
 
-const botonTodos = () => {
-	welcome();
-	document.querySelector('#content-cb').classList.add("ocultar");
-	resetRadioButtons("esp");
-	resetRadioButtons("orig");
-	resetRadioButtons("gener");
-	resetRadioButtons("estd");
-}
-const btnTodos = document.getElementById("btn-todos")
-btnTodos.addEventListener("click", botonTodos);
+//Funciones de botones Tabs, para opciones de filtros
+document.querySelectorAll(".btn-controls button")
+	.forEach(button => {
+		button.addEventListener("click", function () {
+			const parent = button.parentNode;
+			const grantParent = parent.parentNode;
+			const container = grantParent.querySelector(".tabs-container");
+			const childrenList = Array.from(parent.children);
+			const index = childrenList.indexOf(button);
+			container.style.transform = `translatex(-${index * 100}%)`;
 
-const botonTodosM = () => {
+			parent.querySelectorAll("button.active")
+				.forEach(activeBtn => activeBtn.classList.remove("active"));
+
+			button.classList.add("active");
+
+			resetRadioButtons("esp");
+			resetRadioButtons("orig");
+			resetRadioButtons("gener");
+			resetRadioButtons("estd");
+
+			if (button.classList.contains("btn-todos")) {
+				welcome();
+			}
+		})
+	})
+
+//Funciones para los botones de all data mobile
+const allButtonM = () => {
 	welcome();
 	document.querySelector('#my_modal').classList.add("ocultar");
 	resetRadioButtons("esp");
@@ -131,59 +171,7 @@ const botonTodosM = () => {
 	resetRadioButtons("estd");
 }
 const btnTodosM = document.getElementById("btn-todos-m")
-btnTodosM.addEventListener("click", botonTodosM);
-
-const checkboxE = () => {
-	document.querySelector('#content-cb').classList.remove("ocultar");
-	document.querySelector('#especies').classList.remove("ocultar");
-	document.querySelector('#origen').classList.add("ocultar");
-	document.querySelector('#genero').classList.add("ocultar");
-	document.querySelector('#estado').classList.add("ocultar");
-	resetRadioButtons("orig");
-	resetRadioButtons("gener");
-	resetRadioButtons("estd");
-}
-const btnEspecies = document.getElementById("btn-especies")
-btnEspecies.addEventListener("click", checkboxE);
-
-const checkboxO = () => {
-	document.querySelector('#content-cb').classList.remove("ocultar");
-	document.querySelector('#origen').classList.remove("ocultar");
-	document.querySelector('#especies').classList.add("ocultar");
-	document.querySelector('#genero').classList.add("ocultar");
-	document.querySelector('#estado').classList.add("ocultar");
-	resetRadioButtons("esp");
-	resetRadioButtons("gener");
-	resetRadioButtons("estd");
-}
-const btnOrigen = document.getElementById("btn-origen")
-btnOrigen.addEventListener("click", checkboxO);
-
-const checkboxG = () => {
-	document.querySelector('#content-cb').classList.remove("ocultar");
-	document.querySelector('#genero').classList.remove("ocultar");
-	document.querySelector('#especies').classList.add("ocultar");
-	document.querySelector('#origen').classList.add("ocultar");
-	document.querySelector('#estado').classList.add("ocultar");
-	resetRadioButtons("esp");
-	resetRadioButtons("orig");
-	resetRadioButtons("estd");
-}
-const btnGenero = document.getElementById("btn-genero")
-btnGenero.addEventListener("click", checkboxG);
-
-const checkboxEs = () => {
-	document.querySelector('#content-cb').classList.remove("ocultar");
-	document.querySelector('#estado').classList.remove("ocultar");
-	document.querySelector('#especies').classList.add("ocultar");
-	document.querySelector('#origen').classList.add("ocultar");
-	document.querySelector('#genero').classList.add("ocultar");
-	resetRadioButtons("esp");
-	resetRadioButtons("orig");
-	resetRadioButtons("gener");
-}
-const btnEstado = document.getElementById("btn-estado")
-btnEstado.addEventListener("click", checkboxEs);
+btnTodosM.addEventListener("click", allButtonM);
 
 //Filtro de data
 const botonesFiltros = document.querySelector("#content-cb").children;
@@ -229,7 +217,7 @@ for (let i = 0; i < inputNameM.length; i++) {
 }
 
 //Función de buscar
-let contenBus = document.getElementById('ctn-bars-search');
+const contenBus = document.getElementById('ctn-bars-search');
 const coverBus = document.getElementById("cover-ctn-search");
 const inputSeatch = document.getElementById('inputSeatch');
 
@@ -332,7 +320,6 @@ const closeModal = () => {
 const closeFilter = document.getElementById("close");
 closeFilter.addEventListener("click", closeModal);
 
-
 const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
 
 //Funciones del acordeón
@@ -358,7 +345,8 @@ accordionItemHeaders.forEach(accordionItemHeader => {
 		resetRadioButtons("estd");
 	});
 });
-//mostrando capitulos
+
+//mostrando capítulos
 const sampleChapters = (capis, idImagen) => {
 	let salida = `<div class ="retrato">
 	<div class="imas">
@@ -373,7 +361,6 @@ const sampleChapters = (capis, idImagen) => {
 		salida += `
 		<img class="photopar" src="${data[capis.characters[i]].image}">`
 	}
-
 	salida += `</div></div>`;
 	return salida;
 }
@@ -386,7 +373,7 @@ const chapter = () => {
 	document.getElementById('contenido').classList.add('ocultar');
 	document.getElementById('credito').classList.add('ocultar');
 	document.getElementById('capi').classList.remove('ocultar');
-	cambiarClase();
+	changeClass();
 	for (let i = 0; i < capis.length; i++) {
 		document.getElementById("data-capitulos").innerHTML += sampleChapters(capis[i], i + 1);
 	}
@@ -403,11 +390,10 @@ const backMain = () => {
 	document.getElementById('contenido').classList.remove('ocultar');
 	document.getElementById('capi').classList.add('ocultar');
 	document.getElementById('credito').classList.add('ocultar');
-	cambiarClase();
+	changeClass();
 }
 
 document.getElementById("conteni").addEventListener("click", backMain);
-
 
 const credits = () => {
 	document.getElementById('icon-menu').classList.add('ocultar');
@@ -417,7 +403,7 @@ const credits = () => {
 	document.getElementById('contenido').classList.add('ocultar');
 	document.getElementById('capi').classList.add('ocultar');
 	document.getElementById('credito').classList.remove('ocultar');
-	cambiarClase();
+	changeClass();
 
 }
 document.getElementById('nosotras').addEventListener("click", credits);

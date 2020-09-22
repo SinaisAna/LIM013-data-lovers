@@ -57,78 +57,80 @@
 
   <!-- Pantalla 2 -->
   <section class="contenido ocultar" id="contenido">
-    <!-- Control buttons -->
-    <div class="btn-controls">
-      <button id="btn-todos" class="btn-options">Todos</button>
-      <button id="btn-especies" class="btn-options">Especies</button>
-      <button id="btn-origen" class="btn-options">Lugar de origen</button>
-      <button id="btn-genero" class="btn-options">Género</button>
-      <button id="btn-estado" class="btn-options">Estado</button>
-    </div>
 
-    <!-- Control radio -->
-    <div id="content-cb" class="content-cb ocultar">
-      <ul id="especies" class="listElements ocultar">
-        <!-- Especies -->
-        <li><input id="btn-human" type="radio" value="Human" name="esp">
-          <label for="btn-human">Humanos</label></li>
-        <li><input id="btn-aliens" type="radio" value="Alien" name="esp">
-          <label for="btn-aliens">Aliens</label></li>
-        <li><input id="btn-humanoide" type="radio" value="Humanoid" name="esp">
-          <label for="btn-humanoide">Humanoide</label></li>
-        <li><input id="btn-poop" type="radio" value="Poopybutthole" name="esp">
-          <label for="btn-poop">Poopybutthole</label></li>
-        <li><input id="btn-enfermedad" type="radio" value="Disease" name="esp">
-          <label for="btn-enfermedad">Enfermedad</label></li>
-        <li><input id="btn-robots" type="radio" value="Robot" name="esp">
-          <label for="btn-robots">Robots</label></li>
-        <li><input id="btn-parasito" type="radio" value="Cronenberg" name="esp">
-          <label for="btn-parasito">Cronenberg</label></li>
-        <li><input id="btn-mito" type="radio" value="Mytholog" name="esp">
-          <label for="btn-mito">Mitológico</label></li>
-        <li><input id="btn-animal" type="radio" value="Animal" name="esp">
-          <label for="btn-animal">Animal</label></li>
-        <li><input id="btn-otros-e" type="radio" value="otros" name="esp">
-          <label for="btn-otros-e">Otros</label></li>
-      </ul>
+    <div class="tabs">
+      <div class="btn-controls">
+        <button class=" btn-todos active">Todos</button>
+        <button>Especies</button>
+        <button>Lugar de origen</button>
+        <button>Género</button>
+        <button>Estado</button>
+      </div>
 
-      <!-- Lugar de origen -->
-      <ul id="origen" class="listElements ocultar">
-        <li><input id="btn-earth" type="radio" value="Earth" name="orig">
-          <label for="btn-earth">Tierra</label></li>
-        <li><input id="btn-ana" type="radio" value="Anatomy Park" name="orig">
-          <label for="btn-ana">Anatomy Park</label></li>
-        <li><input id="btn-unk-o" type="radio" value="unknown" name="orig">
-          <label for="btn-unk-o">Desconocido</label></li>
-        <li><input id="btn-pluto" type="radio" value="Pluto" name="orig">
-          <label for="btn-pluto">Pluto</label></li>
-        <li><input id="btn-nuptia" type="radio" value="Nuptia 4" name="orig">
-          <label for="btn-nuptia">Nuptia 4</label></li>
-        <li><input id="btn-bepsi" type="radio" value="Bepis 9" name="orig">
-          <label for="btn-bepsi">Bepis 9</label></li>
-        <li><input id="btn-inter" type="radio" value="Interdimensional Cable" name="orig">
-          <label for="btn-inter">Cable interdimensional</label></li>
-      </ul>
+      <div id="content-cb" class="tabs-container">
+        <div class="tab"></div>
+        <ul id="especies" class="listElements tab">
+          <!-- Especies -->
+          <li><input id="btn-human" type="radio" value="Human" name="esp">
+            <label for="btn-human">Humanos</label></li>
+          <li><input id="btn-aliens" type="radio" value="Alien" name="esp">
+            <label for="btn-aliens">Aliens</label></li>
+          <li><input id="btn-humanoide" type="radio" value="Humanoid" name="esp">
+            <label for="btn-humanoide">Humanoide</label></li>
+          <li><input id="btn-poop" type="radio" value="Poopybutthole" name="esp">
+            <label for="btn-poop">Poopybutthole</label></li>
+          <li><input id="btn-enfermedad" type="radio" value="Disease" name="esp">
+            <label for="btn-enfermedad">Enfermedad</label></li>
+          <li><input id="btn-robots" type="radio" value="Robot" name="esp">
+            <label for="btn-robots">Robots</label></li>
+          <li><input id="btn-parasito" type="radio" value="Cronenberg" name="esp">
+            <label for="btn-parasito">Cronenberg</label></li>
+          <li><input id="btn-mito" type="radio" value="Mytholog" name="esp">
+            <label for="btn-mito">Mitológico</label></li>
+          <li><input id="btn-animal" type="radio" value="Animal" name="esp">
+            <label for="btn-animal">Animal</label></li>
+          <li><input id="btn-otros-e" type="radio" value="otros" name="esp">
+            <label for="btn-otros-e">Otros</label></li>
+        </ul>
 
-      <!-- Género -->
-      <ul id="genero" class="listElements ocultar">
-        <li><input id="btn-male" type="radio" value="Male" name="gener">
-          <label for="btn-male">Masculino</label></li>
-        <li><input id="btn-female" type="radio" value="Female" name="gener">
-          <label for="btn-female">Femenino</label></li>
-        <li><input id="btn-unk-g" type="radio" value="unknown" name="gener">
-          <label for="btn-unk-g">Desconocido</label></li>
-      </ul>
+        <!-- Lugar de origen -->
+        <ul id="origen" class="listElements tab">
+          <li><input id="btn-earth" type="radio" value="Earth" name="orig">
+            <label for="btn-earth">Tierra</label></li>
+          <li><input id="btn-ana" type="radio" value="Anatomy Park" name="orig">
+            <label for="btn-ana">Anatomy Park</label></li>
+          <li><input id="btn-unk-o" type="radio" value="unknown" name="orig">
+            <label for="btn-unk-o">Desconocido</label></li>
+          <li><input id="btn-pluto" type="radio" value="Pluto" name="orig">
+            <label for="btn-pluto">Pluto</label></li>
+          <li><input id="btn-nuptia" type="radio" value="Nuptia 4" name="orig">
+            <label for="btn-nuptia">Nuptia 4</label></li>
+          <li><input id="btn-bepsi" type="radio" value="Bepis 9" name="orig">
+            <label for="btn-bepsi">Bepis 9</label></li>
+          <li><input id="btn-inter" type="radio" value="Interdimensional Cable" name="orig">
+            <label for="btn-inter">Cable interdimensional</label></li>
+        </ul>
 
-      <!-- Estado -->
-      <ul id="estado" class="listElements ocultar">
-        <li><input id="btn-live" type="radio" value="Alive" name="estd">
-          <label for="btn-live">Vivo</label></li>
-        <li><input id="btn-dead" type="radio" value="Dead" name="estd">
-          <label for="btn-dead">Muerto</label></li>
-        <li><input id="btn-unk-e" type="radio" value="unknown" name="estd">
-          <label for="btn-unk-e">Desconocido</label></li>
-      </ul>
+        <!-- Género -->
+        <ul id="genero" class="listElements tab">
+          <li><input id="btn-male" type="radio" value="Male" name="gener">
+            <label for="btn-male">Masculino</label></li>
+          <li><input id="btn-female" type="radio" value="Female" name="gener">
+            <label for="btn-female">Femenino</label></li>
+          <li><input id="btn-unk-g" type="radio" value="unknown" name="gener">
+            <label for="btn-unk-g">Desconocido</label></li>
+        </ul>
+
+        <!-- Estado -->
+        <ul id="estado" class="listElements tab">
+          <li><input id="btn-live" type="radio" value="Alive" name="estd">
+            <label for="btn-live">Vivo</label></li>
+          <li><input id="btn-dead" type="radio" value="Dead" name="estd">
+            <label for="btn-dead">Muerto</label></li>
+          <li><input id="btn-unk-e" type="radio" value="unknown" name="estd">
+            <label for="btn-unk-e">Desconocido</label></li>
+        </ul>
+      </div>
     </div>
 
     <!-- botón ordenar por y filtro mobile -->
